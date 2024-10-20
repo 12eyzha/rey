@@ -1,0 +1,137 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Admin Page - Senandung Senja</title>
+    <style>
+        body {
+            margin: 0;
+            font-family: Arial, sans-serif;
+            background-color: #f8f2e6; /* Warna latar belakang */
+            color: #333; /* Warna teks */
+        }
+
+        header {
+            background-image: url('Resources/image.png'); /* Path ke gambar header */
+            background-size: cover; /* Mengatur gambar agar menutupi seluruh header */
+            color: white;
+            padding: 50px 20px; /* Menambahkan padding untuk memberikan ruang pada teks */
+            text-align: center;
+        }
+
+        .container {
+            display: flex;
+            padding: 20px;
+        }
+
+        nav {
+            flex: 1;
+            background-color: #d9b89c; /* Warna lembut untuk navigasi */
+            padding: 15px;
+            border-radius: 5px;
+            margin-right: 20px;
+        }
+
+        nav a {
+            display: block;
+            color: #fff; /* Warna teks putih untuk link */
+            text-decoration: none;
+            padding: 10px;
+            margin: 5px 0;
+            background-color: #8B4513; /* Warna coklat untuk link */
+            border-radius: 5px;
+            transition: background 0.3s;
+        }
+
+        nav a:hover {
+            background-color: #5c3718; /* Warna hover yang lebih gelap */
+        }
+
+        main {
+            flex: 3;
+            background-color: #fff; /* Warna putih untuk konten utama */
+            padding: 20px;
+            border-radius: 5px;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+        }
+
+        h1 {
+            color: #8B4513; /* Warna judul coklat */
+        }
+
+        .card {
+            background-color: #f4e6d4; /* Warna latar belakang untuk kartu */
+            border-radius: 5px;
+            padding: 15px;
+            margin: 15px 0;
+            box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+        }
+
+        .card h2 {
+            color: #8B4513; /* Warna judul kartu */
+        }
+
+        footer {
+            text-align: center;
+            padding: 10px;
+            background-color: #8B4513; /* Warna coklat untuk footer */
+            color: white;
+            position: relative;
+            bottom: 0;
+            width: 100%;
+        }
+
+        /* Responsive layout for smaller screens */
+        @media (max-width: 768px) {
+            .container {
+                flex-direction: column;
+            }
+        }
+    </style>
+    <script>
+        window.onload = function() {
+            const loggedIn = localStorage.getItem('loggedIn');
+            if (!loggedIn || loggedIn === "false") {
+                window.location.href = 'login.html'; // Redirect to login if not logged in
+            }
+        };
+
+        function logout() {
+            localStorage.removeItem('loggedIn'); // Remove the login status
+            window.location.href = 'login.html'; // Redirect to login page
+        }
+    </script>
+</head>
+<body>
+    <header>
+        <h1>Admin Page - Senandung Senja</h1>
+    </header>
+    <div class="container">
+        <nav>
+            <a href="#">Dashboard</a>
+            <a href="#">Kelola Menu</a>
+            <a href="#">Laporan Penjualan</a>
+            <a href="#">Pengaturan</a>
+            <a href="#" onclick="logout()">Keluar</a> <!-- Tombol keluar untuk logout -->
+        </nav>
+        <main>
+            <div class="card">
+                <h2>Selamat datang, Admin!</h2>
+                <p>Kelola semua informasi mengenai produk dan laporan di sini.</p>
+            </div>
+            <div class="card">
+                <h2>Statistik Penjualan</h2>
+                <p>Tampilkan grafik penjualan dan data lainnya.</p>
+            </div>
+            <div class="card">
+                <h2>Pengaturan Akun</h2>
+                <p>Perbarui informasi akun dan pengaturan lainnya.</p>
+            </div>
+        </main>
+    </div>
+    <footer>
+        &copy; 2024 Senandung Senja. Semua hak dilindungi.
+    </footer>
+</body>
+</html>

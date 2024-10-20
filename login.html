@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login Page</title>
+    <style>
+        body {
+            margin: 0;
+            font-family: Arial, sans-serif;
+            display: flex;
+            height: 100vh;
+        }
+        .container {
+            display: flex;
+            width: 100%;
+        }
+        .left {
+            width: 50%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            background-color: #fff;
+        }
+        .right {
+            width: 50%;
+            height: 100vh;
+            background: url('Resources/login.jpg') no-repeat center center;
+            background-size: cover;
+        }
+        .login-form {
+            text-align: center;
+            width: 300px;
+        }
+        .login-form h1 {
+            font-size: 36px;
+            margin-bottom: 20px;
+        }
+        .login-form hr {
+            width: 50px;
+            border: 2px solid #8B4513;
+            margin: 20px auto;
+        }
+        .login-form label {
+            display: block;
+            font-size: 18px;
+            margin-bottom: 5px;
+            text-align: left;
+        }
+        .login-form input {
+            width: 100%;
+            padding: 10px;
+            margin-bottom: 20px;
+            border: 1px solid #ccc;
+            border-radius: 20px;
+            font-size: 16px;
+        }
+        .login-form button {
+            width: 100%;
+            padding: 10px;
+            margin-bottom: 10px;
+            border: none;
+            border-radius: 20px;
+            font-size: 16px;
+            cursor: pointer;
+        }
+        .login-btn {
+            background-color: #8B4513;
+            color: #fff;
+        }
+        .register-btn {
+            background-color: #ddd;
+            color: #333;
+        }
+    </style>
+    <script>
+        function handleLogin() {
+            const email = document.getElementById('email').value;
+            const password = document.getElementById('password').value;
+
+            // Validasi sederhana
+            if (email === "admin" && password === "admin123") {
+                localStorage.setItem('loggedIn', 'true'); // Simpan status login
+                window.location.href = 'admin.html'; // Redirect ke halaman admin
+            } else if (email === "user" && password === "user123") {
+                localStorage.setItem('loggedIn', 'true'); // Simpan status login
+                window.location.href = 'home.html'; // Redirect ke halaman home untuk user biasa
+            } else {
+                alert("Email atau password salah!");
+            }
+        }
+    </script>
+</head>
+<body>
+    <div class="container">
+        <div class="left">
+            <div class="login-form">
+                <h1>Login</h1>
+                <hr>
+                <label for="email">Email</label>
+                <input type="email" id="email" placeholder="senjakopi@yahmail.com">
+                <label for="password">Password</label>
+                <input type="password" id="password" placeholder="Password">
+                <button class="login-btn" onclick="handleLogin()">Login</button>
+                <button class="register-btn" onclick="window.location.href='register.html'">Register Akun</button>
+            </div>
+        </div>
+        <div class="right"></div>
+    </div>
+</body>
+</html>
